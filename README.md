@@ -42,19 +42,6 @@ public AuthLoginDao(@Qualifier("primaryJdbcTemplate") JdbcTemplate jdbcTemplate)
     this.jdbcTemplate = jdbcTemplate;
 }
 
-# ⚙️ How to Use in Your Application
-
-Add Dependency
-
-First, install or publish the library (common-db-lib) to your Maven repository or GitHub Packages.
-Then include it in your application’s pom.xml:
-
-<!-- <dependency>
-    <groupId>paysecure.common.db</groupId>
-    <artifactId>common-db-lib</artifactId>
-    <version>1.0.0</version>
-</dependency> -->
-
 
 # Use DAO in Service Layer
 
@@ -112,6 +99,55 @@ public class AuthLoginDao {
         }
     }
 }
+
+# 🔨 Rebuild & Install Library Locally
+
+From inside your common-db-lib repo:
+
+mvn clean install
+
+
+✔️ This will:
+
+Clean → remove all previous compiled files and target directory
+
+Compile & Test → build the code and run unit tests
+
+Install → put the JAR into your local Maven repository (~/.m2/repository)
+
+Example log at the end:
+
+[INFO] Installing /path/to/common-db-lib/target/common-db-lib-1.0.0.jar to ~/.m2/repository/paysecure/common/db/common-db-lib/1.0.0/common-db-lib-1.0.0.jar
+[INFO] BUILD SUCCESS
+
+# 📥 Use in Your Application
+
+In your main application’s pom.xml, declare the dependency:
+
+<!-- <dependency> -->
+    <groupId>paysecure.common.db</groupId>
+    <artifactId>common-db-lib</artifactId>
+    <version>1.0.0</version>
+<!-- </dependency> -->
+
+
+Then, rebuild your application:
+
+mvn clean install
+
+
+Maven will automatically pull the library from your local repo.
+
+# 🚀 Deploying to Shared Repo (Optional)
+
+If you want others (team/CI/CD) to use it:
+
+mvn clean deploy
+
+
+This pushes to GitHub Packages / Nexus / Artifactory (depending on your distributionManagement config).
+
+Applications can then consume it without needing a local mvn install.
 
 # 🚫 What NOT to Do
 
