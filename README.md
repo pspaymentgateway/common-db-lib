@@ -4,19 +4,22 @@ This library provides a shared database access layer for Paysecure applications.
 It contains only schemas, SQL queries, mappers, and POJOs.
 ⚠️ No business logic should be added here.
 
-📂 Project Structure
+# 📂 Project Structure
+
 paysecure.common.db.mysql
 │
 ├── model/          # All DB entity POJOs
 │   └── AuthLogin.java
 │
+
 ├── mapper/         # All RowMapper implementations
 │   └── LoginMapper.java
 │
+
 └── repository/     # DAO classes with SQL queries
     └── AuthLoginDao.java
 
-🔑 Key Principles
+# 🔑 Key Principles
 
 Keep business logic outside this library
 Only put database-related code here (queries, schemas, models, mappers).
@@ -39,21 +42,21 @@ public AuthLoginDao(@Qualifier("primaryJdbcTemplate") JdbcTemplate jdbcTemplate)
     this.jdbcTemplate = jdbcTemplate;
 }
 
-⚙️ How to Use in Your Application
+# ⚙️ How to Use in Your Application
 
 Add Dependency
 
 First, install or publish the library (common-db-lib) to your Maven repository or GitHub Packages.
 Then include it in your application’s pom.xml:
 
-<dependency>
+<!-- <dependency>
     <groupId>paysecure.common.db</groupId>
     <artifactId>common-db-lib</artifactId>
     <version>1.0.0</version>
-</dependency>
+</dependency> -->
 
 
-Use DAO in Service Layer
+# Use DAO in Service Layer
 
 Example: Fetch login info from DB using AuthLoginDao:
 
@@ -76,7 +79,7 @@ public class UserLoginInfo {
 }
 
 
-Direct Imports
+# Direct Imports
 
 Since this is a library, simply import and use:
 
@@ -110,7 +113,7 @@ public class AuthLoginDao {
     }
 }
 
-🚫 What NOT to Do
+# 🚫 What NOT to Do
 
 ❌ Don’t add business logic
 ❌ Don’t handle DTOs or service orchestration
@@ -118,7 +121,7 @@ public class AuthLoginDao {
 
 This library’s purpose is pure DB access.
 
-📜 Changelog
+# 📜 Changelog
 
 See CHANGELOG.yaml
  for version history.
