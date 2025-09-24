@@ -22,8 +22,9 @@ public class AuthLoginDao {
         try {
             return jdbcTemplate.queryForObject(
                     SQL_FIND_AUTH_LOGIN_BY_NAME,
-                    new Object[]{username},
-                    new LoginMapper()
+                    new LoginMapper(),
+                    username
+                    
             );
         } catch (Exception e) {
             return null; // return null if not found
