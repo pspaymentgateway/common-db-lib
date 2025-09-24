@@ -7,19 +7,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 
-@Service
 public class RedisUtils {
 
     private final RedisTemplate<String, Object> redisTemplate;
 
-    public RedisUtils(@Qualifier("customRedisTemplate") RedisTemplate<String, Object> redisTemplate) {
+    // RedisTemplate is injected by microservice
+    public RedisUtils(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
-
-    // RedisTemplate is injected by microservice
-    // public RedisUtils(RedisTemplate<String, Object> redisTemplate) {
-    //     this.redisTemplate = redisTemplate;
-    // }
 
     public <T> T get(String key, Class<T> type) {
         return (T) redisTemplate.opsForValue().get(key);
