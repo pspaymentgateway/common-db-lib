@@ -118,3 +118,30 @@ public class CacheableQueryService {
         }
     }
 }
+
+
+// HOW TO USE
+
+// @Repository
+// public class MerchantProfileDao {
+
+//     private static final String SQL_FIND_PROFILE = "select * from merchant_profile where login_id = ?";
+
+//     private final CacheableQueryService cacheableQueryService;
+
+//     public MerchantProfileDao(@Qualifier("primaryCacheService") CacheableQueryService cacheableQueryService) {
+//         this.cacheableQueryService = cacheableQueryService;
+//     }
+
+//     public MerchantProfile getProfile(long loginId) {
+//         // Using caching
+//         return cacheableQueryService.findOneWithCache(
+//                 "merchant_profile:" + loginId,
+//                 SQL_FIND_PROFILE,
+//                 new Object[]{loginId},
+//                 new MerchantProfileMapper(),
+//                 Duration.ofMinutes(10),
+//                 MerchantProfile.class
+//         );
+//     }
+// }
