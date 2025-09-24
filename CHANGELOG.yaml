@@ -1,0 +1,13 @@
+changelog:
+  - version: "1.0.1"
+    date: "2025-09-24"
+    changes:
+      - type: "fixed"
+        description: "Added changelog and other dependacy management support"
+
+  - version: "1.0.0"
+    date: "2025-09-23"
+    changes:
+      - type: "added"
+        description: "Initial release of common-db-lib with Spring Data JPA and MySQL support"
+
