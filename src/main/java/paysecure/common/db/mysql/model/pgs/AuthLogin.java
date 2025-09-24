@@ -1,4 +1,4 @@
-package paysecure.common.db.mysql.model;
+package paysecure.common.db.mysql.model.pgs;
 
 public class AuthLogin {
 	private long id;

@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import paysecure.common.db.mysql.mapper.MerchantProfileMapper;
-import paysecure.common.db.mysql.model.MerchantProfile;
+import paysecure.common.db.mysql.model.pgs.MerchantProfile;
 
 
 @Repository

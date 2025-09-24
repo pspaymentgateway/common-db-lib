@@ -49,7 +49,7 @@ Example: Fetch login info from DB using AuthLoginDao:
 
 import org.springframework.stereotype.Service;
 import paysecure.common.db.mysql.repository.AuthLoginDao;
-import paysecure.common.db.mysql.model.AuthLogin;
+import paysecure.common.db.mysql.model.pgs.AuthLogin;
 
 @Service
 public class UserLoginInfo {

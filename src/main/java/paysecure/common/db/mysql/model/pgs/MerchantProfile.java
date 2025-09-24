@@ -1,4 +1,4 @@
-package paysecure.common.db.mysql.model;
+package paysecure.common.db.mysql.model.pgs;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;

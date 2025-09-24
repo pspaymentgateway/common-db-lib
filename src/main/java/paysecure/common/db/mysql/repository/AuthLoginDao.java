@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import paysecure.common.db.mysql.mapper.LoginMapper;
-import paysecure.common.db.mysql.model.AuthLogin;
+import paysecure.common.db.mysql.model.pgs.AuthLogin;
 
 @Repository
 public class AuthLoginDao {
