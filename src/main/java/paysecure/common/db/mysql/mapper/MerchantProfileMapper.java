@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import paysecure.common.db.mysql.model.MerchantProfile;
+import paysecure.common.db.mysql.model.pgs.MerchantProfile;
 
 public class MerchantProfileMapper implements RowMapper<MerchantProfile> {
 

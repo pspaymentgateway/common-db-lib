@@ -1,5 +1,5 @@
 
-package paysecure.common.db.mysql.model;
+package paysecure.common.db.mysql.model.pgs;
 
 public class LoginInfo {
 	private int parentId;

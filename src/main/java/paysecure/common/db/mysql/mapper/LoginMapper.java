@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import paysecure.common.db.mysql.model.AuthLogin;
+import paysecure.common.db.mysql.model.pgs.AuthLogin;
 
 public class LoginMapper implements RowMapper<AuthLogin> {
 

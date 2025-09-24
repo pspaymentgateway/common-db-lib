@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import paysecure.common.db.mysql.mapper.LoginMapper;
-import paysecure.common.db.mysql.model.AuthLogin;
+import paysecure.common.db.mysql.model.pgs.AuthLogin;
 
 @Repository
 public class AuthLoginDao {
@@ -22,8 +22,9 @@ public class AuthLoginDao {
         try {
             return jdbcTemplate.queryForObject(
                     SQL_FIND_AUTH_LOGIN_BY_NAME,
-                    new Object[]{username},
-                    new LoginMapper()
+                    new LoginMapper(),
+                    username
+                    
             );
         } catch (Exception e) {
             return null; // return null if not found

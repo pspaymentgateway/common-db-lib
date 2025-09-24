@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import paysecure.common.db.mysql.mapper.MerchantProfileMapper;
-import paysecure.common.db.mysql.model.MerchantProfile;
+import paysecure.common.db.mysql.model.pgs.MerchantProfile;
 
 
 @Repository
@@ -24,7 +24,7 @@ public class MerchantProileDao {
     public MerchantProfile getProfile(long login_id) {
 		MerchantProfile MP = null;
 		try {
-			MP = jdbcTemplate.queryForObject(SQL_FIND_PROFILE, new Object[] { login_id }, new MerchantProfileMapper());
+			MP = jdbcTemplate.queryForObject(SQL_FIND_PROFILE, new MerchantProfileMapper(), login_id);
 		} catch (Exception e) {
 			MP = new MerchantProfile();
 			MP.setLogin_id(login_id);
