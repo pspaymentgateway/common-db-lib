@@ -1,4 +1,4 @@
-package paysecure.common.db.redis;
+package paysecure.common.library;
 
 import java.time.Duration;
 import org.springframework.data.redis.core.RedisTemplate;
