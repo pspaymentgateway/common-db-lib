@@ -1,4 +1,4 @@
-package paysecure.common.db.mysql.repository;
+package paysecure.common.db.mysql.repository.pgs;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
