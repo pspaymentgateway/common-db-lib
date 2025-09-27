@@ -1,23 +1,92 @@
-# Common DB Library (common-db-lib)
+# Common Library Usage Guide
 
 This library provides a shared database access layer for Paysecure applications.
 It contains only schemas, SQL queries, mappers, and POJOs.
 ⚠️ No business logic should be added here.
 
-# 📂 Project Structure
+This library provides utilities such as RedisUtils, CacheableQueryService, and other shared components.
+Important: Before using this library in your Spring Boot application, ensure the required configurations are present.
 
-paysecure.common.db.mysql
-│
-├── model/          # All DB entity POJOs
-│   └── AuthLogin.java
-│
+1. Required Configurations
+1.1 MySQL
 
-├── mapper/         # All RowMapper implementations
-│   └── LoginMapper.java
-│
+For primary and secondary databases (HikariCP recommended):
 
-└── repository/     # DAO classes with SQL queries
-    └── AuthLoginDao.java
+# Primary database
+spring.datasource.url=jdbc:mysql://localhost:3306/primary_db
+spring.datasource.username=root
+spring.datasource.password=secret
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=2
+
+# Secondary/dashboard database
+dashboard.datasource.url=jdbc:mysql://localhost:3306/dashboard_db
+dashboard.datasource.username=root
+dashboard.datasource.password=secret
+dashboard.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+dashboard.datasource.hikari.maximum-pool-size=5
+dashboard.datasource.hikari.minimum-idle=1
+
+1.2 Redis
+
+For caching via RedisUtils:
+
+spring.redis.host=localhost
+spring.redis.port=6379
+spring.redis.password=yourRedisPassword
+spring.redis.database=0
+spring.redis.timeout=60000
+spring.redis.lettuce.pool.max-active=8
+spring.redis.lettuce.pool.max-idle=8
+spring.redis.lettuce.pool.min-idle=0
+spring.redis.lettuce.pool.max-wait=10000
+
+1.3 MongoDB
+
+For primary and optional secondary/secondary databases:
+
+# Primary MongoDB
+spring.data.mongodb.uri=mongodb://localhost:27017/primary_db
+
+# Secondary MongoDB (optional)
+spring.data.mongodb.secondary.uri=mongodb://localhost:27017/secondary_db
+
+1.4 Application Name
+
+Used for logging and monitoring:
+
+spring.application.name=batch-processor
+
+2. Using the Library
+
+Add the library dependency to your pom.xml:
+
+<!-- <dependency> -->
+    <groupId>paysecure.common</groupId>
+    <artifactId>common-lib</artifactId>
+    <version>1.0.2</version>
+<!-- </dependency> -->
+
+
+# Ensure your Spring Boot application scans the library packages:
+
+@SpringBootApplication(scanBasePackages = {"org.yourapp", "paysecure.common.library"})
+public class YourApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(YourApplication.class, args);
+    }
+}
+
+
+Beans provided by the library:
+
+RedisUtils (requires Redis configuration)
+
+CacheableQueryService (requires primary/secondary JDBC)
+
+Other utilities may require MongoDB configuration
+
 
 # 🔑 Key Principles
 
