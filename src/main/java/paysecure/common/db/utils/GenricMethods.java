@@ -5,10 +5,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import service.configSystemService.ServiceConfigService;
+import paysecure.common.library.ServiceConfigService;
 import paysecure.common.db.mysql.model.configSystemModels.EntityRollout;
 import paysecure.common.db.mysql.model.configSystemModels.RolloutConfig;
-import paysecure.common.db.redis.RedisUtils;
+import paysecure.common.library.RedisUtils;
 
 import java.time.Duration;
 import java.util.*;
