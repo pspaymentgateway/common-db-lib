@@ -1,4 +1,9 @@
 changelog:
+  - version: "1.0.2"
+    date: "2025-10-03"
+    changes:
+      - type: "github-push-support"
+        description: "Push changes on Github Cloud"
   - version: "1.0.1"
     date: "2025-09-24"
     changes:

@@ -16,7 +16,7 @@
 
     <groupId>paysecure.common</groupId>
     <artifactId>common-lib</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -77,13 +77,13 @@
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-            <version>3.0.2</version>
+            <!-- <version>3.0.2</version> -->
         </dependency>
 
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
-            <version>2.1.1</version>
+            <!-- <version>2.1.1</version> -->
         </dependency>
 
         <!-- ✅ Hibernate Validator (implementation of Jakarta Validation API) -->
@@ -103,7 +103,8 @@
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version> <!-- matches Java 21 / Spring Boot 3.x -->
+            <!-- matches Java 21 / Spring Boot 3.x -->
+            <!-- <version>6.0.0</version>  -->
             <scope>provided</scope>
         </dependency>
 
@@ -145,10 +146,12 @@
 
     </dependencies>
 
+    <!-- When you want to create maven package on github -->
+
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>GitHub Packages</name>
+            <name> Paysecure Common Library</name>
             <url>https://maven.pkg.github.com/pspaymentgateway/common-db-lib</url>
         </repository>
     </distributionManagement>
